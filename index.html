@@ -23,3 +23,1458 @@
             "mailto:EMAIL_PLACEHOLDER@sigmatech.com"
         ]
     }
+    </script>
+    
+    <style>
+        /* CSS Variables - CS:GO Printstream Inspired */
+        :root {
+            --primary: #000000;
+            --secondary: #ffffff;
+            --accent: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 50%, #ff006b 100%);
+            --accent-solid: #8b5cf6;
+            --bg-dark: #0a0a0a;
+            --bg-light: #f8f9fa;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --text-dark: #333333;
+            --border: #333333;
+            --shadow: rgba(139, 92, 246, 0.2);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-dark);
+            overflow-x: hidden;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.8rem; }
+        h3 { font-size: 2rem; }
+        h4 { font-size: 1.5rem; }
+        
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .gradient-text {
+            background: var(--accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: var(--secondary);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid;
+            border-image: var(--accent) 1;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+        
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-light {
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
+        
+        .section-light p {
+            color: #666666;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: var(--transition);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+        }
+        
+        .hero-content h1 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* About Section */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(139, 92, 246, 0.5);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.1);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+        
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .portfolio-item:hover {
+            transform: scale(1.02);
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.8));
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 12px;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: rgba(139, 92, 246, 0.2);
+            padding: 0.5rem;
+            border-radius: 50%;
+        }
+        
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .pricing-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+            position: relative;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+        }
+        
+        .pricing-card.featured {
+            border-image: var(--accent) 1;
+            transform: scale(1.05);
+        }
+        
+        .pricing-card h3 {
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-solid);
+            margin-bottom: 1rem;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .pricing-features li {
+            padding: 0.5rem 0;
+            color: #666;
+        }
+        
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--accent-solid);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        /* CS:GO Post-Game Scoreboard Styles */
+        .creators-section {
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .creators-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 0, 107, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .scoreboard-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .scoreboard-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .scoreboard-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: var(--accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        
+        .scoreboard-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+        
+        .scoreboard {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .scoreboard-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .scoreboard-header-row {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            border-bottom: 2px solid rgba(139, 92, 246, 0.5);
+        }
+        
+        .scoreboard-header-row th {
+            padding: 1rem;
+            text-align: left;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-primary);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .scoreboard-header-row th:last-child {
+            border-right: none;
+        }
+        
+        .scoreboard-row {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .scoreboard-row:hover {
+            background: rgba(139, 92, 246, 0.1);
+            transform: scale(1.01);
+        }
+        
+        .scoreboard-row:nth-child(even) {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        
+        .scoreboard-row td {
+            padding: 1.2rem 1rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            vertical-align: middle;
+        }
+        
+        .scoreboard-row td:last-child {
+            border-right: none;
+        }
+        
+        .player-rank {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-solid);
+            text-align: center;
+            min-width: 40px;
+        }
+        
+        .player-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            min-width: 200px;
+        }
+        
+        .player-role {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .player-kda {
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+            color: #00ff88;
+            text-align: center;
+        }
+        
+        .player-score {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffd700;
+            text-align: center;
+        }
+        
+        .player-status {
+            text-align: center;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .status-online {
+            background: linear-gradient(135deg, #00ff88, #00cc6a);
+            color: #000;
+        }
+        
+        .status-mvp {
+            background: var(--accent);
+            color: #fff;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        /* MVP Crown Icon */
+        .mvp-crown {
+            display: inline-block;
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+            animation: rotate 3s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Responsive adjustments for scoreboard */
+        @media (max-width: 768px) {
+            .scoreboard-title {
+                font-size: 2rem;
+            }
+            
+            .scoreboard-header-row th,
+            .scoreboard-row td {
+                padding: 0.8rem 0.5rem;
+                font-size: 0.8rem;
+            }
+            
+            .player-name {
+                min-width: 150px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .scoreboard-container {
+                padding: 0 1rem;
+            }
+            
+            .scoreboard-title {
+                font-size: 1.5rem;
+            }
+            
+            .scoreboard {
+                font-size: 0.75rem;
+            }
+            
+            .scoreboard-header-row th,
+            .scoreboard-row td {
+                padding: 0.6rem 0.3rem;
+            }
+            
+            .player-name {
+                min-width: 120px;
+            }
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 4px solid;
+            border-image: var(--accent) 1;
+        }
+        
+        .testimonial-rating {
+            color: #ffd700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-author {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .testimonial-author h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+        
+        .testimonial-author p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+        }
+        
+        .contact-item-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            font-family: inherit;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary);
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-solid);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(10, 10, 10, 0.98);
+                flex-direction: column;
+                justify-content: start;
+                padding: 2rem;
+                transition: var(--transition);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            
+            .services-grid,
+            .portfolio-grid,
+            .pricing-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">ΣTech Industry</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#creators">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Flawless Execution. <span class="gradient-text">Every Round.</span></h1>
+                    <p>Transform your IoT vision into reality with our affordable and lightning-fast development solutions. We deliver precision-engineered IoT products that exceed expectations.</p>
+                    <div class="hero-cta">
+                        <a href="#contact" class="btn btn-primary">Get Started</a>
+                        <a href="#portfolio" class="btn btn-secondary">View Portfolio</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section section-light">
+            <div class="container">
+                <div class="about-content">
+                    <h2>About <span class="gradient-text">ΣTech Industry</span></h2>
+                    <p>At ΣTech Industry, we specialize in delivering premium IoT product development services without breaking the bank. Our expert team combines cutting-edge technology with streamlined processes to provide you with affordable, fast, and reliable IoT solutions.</p>
+                    <p>We understand that in today's competitive landscape, speed and cost-effectiveness are crucial. That's why we've optimized our workflows to deliver exceptional results in record time, ensuring your IoT projects launch faster than ever before while maintaining the highest quality standards.</p>
+                    <p>From concept to deployment, we're your trusted partner in IoT innovation, committed to flawless execution every single time.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section">
+            <div class="container">
+                <h2 class="text-center">Our <span class="gradient-text">Services</span></h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🚀</div>
+                        <h3>IoT Product Development</h3>
+                        <p>End-to-end IoT product development from ideation to market-ready solutions. We handle hardware, software, and connectivity.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🔧</div>
+                        <h3>Prototyping</h3>
+                        <p>Rapid prototyping services to validate your concepts quickly and cost-effectively before full-scale development.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">💡</div>
+                        <h3>Consulting</h3>
+                        <p>Expert IoT consulting to help you make informed decisions about technology stack, architecture, and implementation strategies.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🔗</div>
+                        <h3>Integration</h3>
+                        <p>Seamless integration of IoT solutions with existing systems, databases, and third-party platforms.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">⚡</div>
+                        <h3>Other IoT Services</h3>
+                        <p>Custom IoT solutions, maintenance, updates, and specialized services tailored to your unique requirements.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="section section-light">
+            <div class="container">
+                <h2 class="text-center">Our <span class="gradient-text">Portfolio</span></h2>
+                <div class="portfolio-grid">
+                    <!-- Replace /assets/portfolio1.jpg with actual image paths -->
+                    <div class="portfolio-item" data-image="/assets/portfolio1.jpg">
+                        <img src="/assets/portfolio1.jpg" alt="Smart Home Automation System" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div>
+                                <h4>Smart Home Automation</h4>
+                                <p>Complete home automation solution with voice control and mobile app</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-image="/assets/portfolio2.jpg">
+                        <img src="/assets/portfolio2.jpg" alt="Industrial IoT Monitoring" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div>
+                                <h4>Industrial IoT Monitoring</h4>
+                                <p>Real-time monitoring system for manufacturing equipment</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-image="/assets/portfolio3.jpg">
+                        <img src="/assets/portfolio3.jpg" alt="Agricultural Sensor Network" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div>
+                                <h4>Agricultural Sensors</h4>
+                                <p>Smart farming solution with environmental monitoring</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-image="/assets/portfolio4.jpg">
+                        <img src="/assets/portfolio4.jpg" alt="Healthcare IoT Device" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div>
+                                <h4>Healthcare IoT</h4>
+                                <p>Medical device with remote monitoring capabilities</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-image="/assets/portfolio5.jpg">
+                        <img src="/assets/portfolio5.jpg" alt="Smart City Infrastructure" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div>
+                                <h4>Smart City Infrastructure</h4>
+                                <p>Connected streetlights and traffic management system</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-image="/assets/portfolio6.jpg">
+                        <img src="/assets/portfolio6.jpg" alt="Retail Analytics Platform" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div>
+                                <h4>Retail Analytics</h4>
+                                <p>Customer behavior analysis with IoT sensors</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="section">
+            <div class="container">
+                <h2 class="text-center">Choose Your <span class="gradient-text">Package</span></h2>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Starter</h3>
+                        <div class="pricing-price">$1</div>
+                        <ul class="pricing-features">
+                            <li>Basic IoT consultation</li>
+                            <li>Simple prototype development</li>
+                            <li>Basic documentation</li>
+                            <li>Email support</li>
+                            <li>1-month warranty</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-secondary">Get Started</a>
+                    </div>
+                    <div class="pricing-card featured">
+                        <h3>Pro</h3>
+                        <div class="pricing-price">$67</div>
+                        <ul class="pricing-features">
+                            <li>Advanced IoT development</li>
+                            <li>Full prototype with testing</li>
+                            <li>Comprehensive documentation</li>
+                            <li>Priority support</li>
+                            <li>3-month warranty</li>
+                            <li>Basic integration support</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary">Most Popular</a>
+                    </div>
+                    <div class="pricing-card">
+                        <h3>Premium</h3>
+                        <div class="pricing-price">$420</div>
+                        <ul class="pricing-features">
+                            <li>Complete IoT solution</li>
+                            <li>Production-ready development</li>
+                            <li>Full documentation & training</li>
+                            <li>24/7 dedicated support</li>
+                            <li>6-month warranty</li>
+                            <li>Full integration & deployment</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Creators Section - CS:GO Style Scoreboard -->
+        <section id="creators" class="section creators-section">
+            <div class="scoreboard-container">
+                <div class="scoreboard-header">
+                    <h2 class="scoreboard-title">Development Team</h2>
+                    <p class="scoreboard-subtitle">The elite squad behind ΣTech Industry</p>
+                </div>
+                
+                <div class="scoreboard">
+                    <table class="scoreboard-table">
+                        <thead>
+                            <tr class="scoreboard-header-row">
+                                <th>#</th>
+                                <th>Player</th>
+                                <th>Role</th>
+                                <th>K/D/A</th>
+                                <th>Score</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="scoreboard-row">
+                                <td class="player-rank">1</td>
+                                <td class="player-name">Fairuz Andriansyah</td>
+                                <td class="player-role">Team Leader</td>
+                                <td class="player-kda">27/3/12</td>
+                                <td class="player-score">4,250</td>
+                                <td class="player-status">
+                                    <span class="status-badge status-mvp">
+                                        <span class="mvp-crown">👑</span>MVP
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="scoreboard-row">
+                                <td class="player-rank">2</td>
+                                <td class="player-name">MUHAMMAD RUSDA HADANA</td>
+                                <td class="player-role">Full Stack Dev</td>
+                                <td class="player-kda">24/5/8</td>
+                                <td class="player-score">3,980</td>
+                                <td class="player-status">
+                                    <span class="status-badge status-online">Online</span>
+                                </td>
+                            </tr>
+                            <tr class="scoreboard-row">
+                                <td class="player-rank">3</td>
+                                <td class="player-name">ADWA' MUHAMMAD ASYTAR</td>
+                                <td class="player-role">IoT Specialist</td>
+                                <td class="player-kda">22/4/15</td>
+                                <td class="player-score">3,750</td>
+                                <td class="player-status">
+                                    <span class="status-badge status-online">Online</span>
+                                </td>
+                            </tr>
+                            <tr class="scoreboard-row">
+                                <td class="player-rank">4</td>
+                                <td class="player-name">SURYA ANANTA</td>
+                                <td class="player-role">Hardware Engineer</td>
+                                <td class="player-kda">21/6/11</td>
+                                <td class="player-score">3,620</td>
+                                <td class="player-status">
+                                    <span class="status-badge status-online">Online</span>
+                                </td>
+                            </tr>
+                            <tr class="scoreboard-row">
+                                <td class="player-rank">5</td>
+                                <td class="player-name">RISANG DANANJOYO</td>
+                                <td class="player-role">Backend Dev</td>
+                                <td class="player-kda">19/7/9</td>
+                                <td class="player-score">3,420</td>
+                                <td class="player-status">
+                                    <span class="status-badge status-online">Online</span>
+                                </td>
+                            </tr>
+                            <tr class="scoreboard-row">
+                                <td class="player-rank">6</td>
+                                <td class="player-name">ADI BASKARA HUSODO</td>
+                                <td class="player-role">Frontend Dev</td>
+                                <td class="player-kda">18/8/13</td>
+                                <td class="player-score">3,310</td>
+                                <td class="player-status">
+                                    <span class="status-badge status-online">Online</span>
+                                </td>
+                            </tr>
+                            <tr class="scoreboard-row">
+                                <td class="player-rank">7</td>
+                                <td class="player-name">AJI WALUYO PANGESTU</td>
+                                <td class="player-role">DevOps Engineer</td>
+                                <td class="player-kda">17/9/10</td>
+                                <td class="player-score">3,180</td>
+                                <td class="player-status">
+                                    <span class="status-badge status-online">Online</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="section section-light">
+            <div class="container">
+                <h2 class="text-center">What Our <span class="gradient-text">Clients Say</span></h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">★★★★★</div>
+                        <p>"ΣTech Industry delivered our IoT project ahead of schedule and under budget. Their expertise in both hardware and software development is unmatched. Highly recommended!"</p>
+                        <div class="testimonial-author">
+                            <h4>Sarah Johnson</h4>
+                            <p>CTO, TechStartup Inc.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">★★★★★</div>
+                        <p>"The team's professionalism and technical knowledge impressed us from day one. They transformed our concept into a market-ready product with flawless execution."</p>
+                        <div class="testimonial-author">
+                            <h4>Michael Chen</h4>
+                            <p>Product Manager, InnovateCorp</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">★★★★★</div>
+                        <p>"Fast, affordable, and reliable. ΣTech Industry exceeded our expectations in every aspect. Our IoT solution is now generating significant ROI for our business."</p>
+                        <div class="testimonial-author">
+                            <h4>Emily Rodriguez</h4>
+                            <p>Founder, SmartSolutions Ltd.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="text-center">Get In <span class="gradient-text">Touch</span></h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Let's Start Your Project</h3>
+                        <p>Ready to bring your IoT vision to life? Contact us today for a free consultation and discover how we can help you achieve flawless execution.</p>
+                        
+                        <!-- Replace XXXXXXXXXXX with actual WhatsApp number -->
+                        <div class="contact-item">
+                            <div class="contact-item-icon">📱</div>
+                            <div>
+                                <h4>WhatsApp</h4>
+                                <a href="https://wa.me/XXXXXXXXXXX" style="color: var(--accent-solid);">+XX XXX XXX XXXX</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Replace EMAIL_PLACEHOLDER with actual email -->
+                        <div class="contact-item">
+                            <div class="contact-item-icon">📧</div>
+                            <div>
+                                <h4>Email</h4>
+                                <a href="mailto:EMAIL_PLACEHOLDER@sigmatech.com" style="color: var(--accent-solid);">EMAIL_PLACEHOLDER@sigmatech.com</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Replace INSTAGRAM_HANDLE with actual Instagram handle -->
+                        <div class="contact-item">
+                            <div class="contact-item-icon">📷</div>
+                            <div>
+                                <h4>Instagram</h4>
+                                <a href="https://instagram.com/INSTAGRAM_HANDLE" style="color: var(--accent-solid);">@INSTAGRAM_HANDLE</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Project Details *</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your IoT project requirements..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>ΣTech Industry</h4>
+                    <p>Delivering flawless IoT execution, every round. Your trusted partner in IoT innovation.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">IoT Development</a></li>
+                        <li><a href="#services">Prototyping</a></li>
+                        <li><a href="#services">Consulting</a></li>
+                        <li><a href="#services">Integration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://wa.me/XXXXXXXXXXX">WhatsApp</a></li>
+                        <li><a href="mailto:EMAIL_PLACEHOLDER@sigmatech.com">Email</a></li>
+                        <li><a href="https://instagram.com/INSTAGRAM_HANDLE">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ΣTech Industry. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <img src="" alt="" id="lightboxImg">
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(10, 10, 10, 0.98)';
+            } else {
+                header.style.background = 'rgba(10, 10, 10, 0.95)';
+            }
+        });
+
+        // Portfolio Lightbox
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxClose = document.getElementById('lightboxClose');
+
+        portfolioItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const imgSrc = item.dataset.image;
+                const imgAlt = item.querySelector('img').alt;
+                
+                lightboxImg.src = imgSrc;
+                lightboxImg.alt = imgAlt;
+                lightbox.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close lightbox
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+                closeLightbox();
+            }
+        });
+
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Contact Form Validation
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            // Basic validation
+            if (!name || !email || !message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // Success message (replace with actual form submission logic)
+            alert('Thank you for your message! We\'ll get back to you soon.');
+            contactForm.reset();
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe sections for animations
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.5;
+            
+            if (hero) {
+                hero.style.transform = `translateY(${rate}px)`;
+            }
+        });
+
+        // Service cards hover effect
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Pricing cards interaction
+        document.querySelectorAll('.pricing-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                if (!card.classList.contains('featured')) {
+                    card.style.borderImage = 'linear-gradient(135deg, #00d4ff 0%, #8b5cf6 50%, #ff006b 100%) 1';
+                }
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                if (!card.classList.contains('featured')) {
+                    card.style.borderImage = 'none';
+                    card.style.border = '2px solid transparent';
+                }
+            });
+        });
+
+        // Loading animation for images
+        document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+            img.addEventListener('load', () => {
+                img.style.opacity = '1';
+                img.style.transform = 'scale(1)';
+            });
+        });
+
+        // Add loading state to images
+        document.querySelectorAll('.portfolio-item img').forEach(img => {
+            img.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            img.style.opacity = '0.8';
+            img.style.transform = 'scale(1.02)';
+        });
+
+        console.log('ΣTech Industry - Landing Page Loaded Successfully');
+    </script>
+</body>
+</html>
